@@ -35,7 +35,15 @@ function question2() {
 
 // 3: Which item has a "GBP" currency code? Display it's name and price.
 function question3() {
-  // Answer:
+  let itemTitle = [];
+  let itemPrice = [];
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].currency_code === "GBP") {
+      itemTitle.push(data[i].title);
+      itemPrice.push(data[i].price);
+    }
+  }
+  console.log(itemTitle + " costs " + itemPrice + " pounds.");
 }
 
 
