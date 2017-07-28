@@ -50,12 +50,14 @@ function question4() {
   let woodItems = [];
   for (let i = 0; i < data.length; i++) {
 
-    for (let k = 0; k < data[i].materials.length; k++) {
-      if (data[i].materials[k] === "wood") {
+    for (let j = 0; j < data[i].materials.length; j++) {
+      if (data[i].materials[j] === "wood") {
         woodItems.push(data[i].title);
       }
     }
-  } console.log(woodItems.join(" is made of wood.\n"));
+  } for (let k = 0; k < woodItems.length; k++) {
+    console.log(woodItems[k] + " is made of wood.\n");
+  }
 }
 
 
@@ -65,20 +67,28 @@ function question4() {
 function question5() {
   let eightOrMore = [];
   for (let i = 0; i < data.length; i++) {
+    let obj = {};
+    if (data[i].materials.length > 7) {
+      obj.title = data[i].title;
+      obj.materialsLength = data[i].materials.length;
+      obj.materials = data[i].materials;
 
-    for (let k = 0; k < data[i].materials[k]; k++) {
-      if (data[i].materials.length > 7) {
-        eightOrMore.push(data[i].title);
-        // eightOrMore.push(data[i].materials.length);
-        // eightOrMore.push(data[i].materials);
-      }
+      eightOrMore.push(obj);
     }
-  } console.log(eightOrMore);
+  } for (k = 0; k < eightOrMore.length; k++) {
+    console.log(eightOrMore[k].title + " has " + eightOrMore[k].materialsLength + " materials:");
+    console.log("- " + eightOrMore[k].materials.join("\n" + "- "));
+  }
 }
 
 
 // 6: How many items were made by their sellers?
 // Answer:
 function question6() {
-
-}
+  let sellerMade = [];
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].who_made === "i_did") {
+      sellerMade.push(data[i].who_made);
+    }
+  } console.log(sellerMade.length + " were made by their sellers.");
+} 
